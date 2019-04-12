@@ -11,6 +11,9 @@
     font-size: 17px;
 }
 .hg{
-    height: 500px;
+    height: 400px;
     overflow-y: scroll;
+}
+.bd{
+    height: stretch;
 }
