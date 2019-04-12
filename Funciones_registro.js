@@ -74,8 +74,12 @@ function mostrarMensajesDeFirebase(){
 }
 
 function enviarDatosFirebase(event){
-    refMensajes.push({mensaje: document.getElementById('Mensaje').value, nombre: "..."});
-    document.getElementById("Mensaje").value = "";
+    if(document.getElementById("Mensaje").value === ""){
+        alert('escribe algo')
+    }else{
+        refMensajes.push({mensaje: document.getElementById('Mensaje').value, nombre: "..."});
+        document.getElementById("Mensaje").value = "";
+    }
 }
 
 function iniciarFirebase(){
