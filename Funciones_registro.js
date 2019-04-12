@@ -75,7 +75,7 @@ function mostrarMensajesDeFirebase(){
 
 function enviarDatosFirebase(event){
     if(document.getElementById("Mensaje").value === ""){
-        aletify.alert('Escribe Algo').set('label', 'Entendido');
+        alert('Escribe Algo...');
     }else{
         refMensajes.push({mensaje: document.getElementById('Mensaje').value, nombre: "..."});
         document.getElementById("Mensaje").value = "";
