@@ -66,7 +66,15 @@ function mostrarMensajesDeFirebase(){
 
        let datos = snap.val();
         for(var key in datos){
-            todosLosMensajes += `</br><strong>${datos[key].nombre}: </strong>` + datos[key].mensaje;
+            todosLosMensajes += `</br>
+                <div class="rounded p-2 col-12 border border-secondary smbraExt bg-dark">
+                    <strong>
+                        <h5 class="text-secondary bg-light col-5 rounded p-1">${datos[key].nombre}: </h5>
+                    </strong>
+                    <ul>
+                        <p class="msj">` + datos[key].mensaje + `</p>
+                    </ul>
+                </div>`;
         }
         panel.innerHTML = todosLosMensajes;
     })
@@ -75,7 +83,6 @@ function mostrarMensajesDeFirebase(){
 
 function enviarDatosFirebase(event){
     if(document.getElementById("Mensaje").value === ""){
-        alert('Escribe Algo...');
     }else{
         refMensajes.push({mensaje: document.getElementById('Mensaje').value, nombre: "..."});
         document.getElementById("Mensaje").value = "";
