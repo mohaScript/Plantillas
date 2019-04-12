@@ -1,0 +1,12 @@
+.circulo{
+    height: 50px;
+    width: 50px;
+    background: lightblue;
+    color: azure;
+}
+.smbraExt{
+    box-shadow: 0px 0px 15px black;
+}
+.msj{
+    font-size: 17px;
+}
