@@ -51,8 +51,8 @@ var panel;
 
 function inicializar(){
     formulario = document.getElementById('formulario');
-    formulario.addEventListener('submit', enviarDatosFirebase, false);
-    
+    // formulario.addEventListener('submit', enviarDatosFirebase, false);
+    document.getElementById("btn").addEventListener("click",enviarDatosFirebase)
     panel = document.getElementById('panel');
     iniciarFirebase();
     mostrarMensajesDeFirebase();
@@ -60,9 +60,11 @@ function inicializar(){
 
 function mostrarMensajesDeFirebase(){
     refMensajes = firebase.database().ref().child("mensajes");
-    var todosLosMensajes = "";
     refMensajes.on("value", function(snap){
-        datos = snap.val();
+    var todosLosMensajes = "";
+
+
+       let datos = snap.val();
         for(var key in datos){
             todosLosMensajes += `</br><strong>${datos[key].nombre}: </strong>` + datos[key].mensaje;
         }
@@ -72,8 +74,8 @@ function mostrarMensajesDeFirebase(){
 }
 
 function enviarDatosFirebase(event){
-    event.preventDeafault();
-    refMensajes.push({mensaje: event.target.mensaje.value, nombre: "..."});
+    refMensajes.push({mensaje: document.getElementById('Mensaje').value, nombre: "..."});
+    document.getElementById("Mensaje").value = "";
 }
 
 function iniciarFirebase(){
